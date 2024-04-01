@@ -20,8 +20,12 @@ entity Employee : cuid, managed,types.PersonDetails{
   contractStarted : Date;
   email           : types.Email not null; //This Email has to follow the Format and should not be null
   phone           : types.phoneNumber not null;
-  address         : Composition of Address; //<Association or Composition name>_<key name>/address_ID will be generated once we add the Association
-
+  // address         : Composition of Address; //<Association or Composition name>_<key name>/address_ID will be generated once we add the Association
+  address         : Composition of many Address
+                      on address.employee = $self;
+  salary          : Composition of Salary;
+  department      : Association to Department;
+  designation     : Association to Designation;
 }
 
 entity Address {
@@ -32,7 +36,28 @@ entity Address {
       street   : String;
       landmark : String;
 
+employee : Association to Employee;
+}
 
+
+entity Department : cuid {
+  name        : String;
+  description : String;
+  headCount   : Integer;
+}
+
+entity Salary : cuid {
+  costToCompany : types.Amount;
+  employeePf    : types.Amount;
+  employerPf    : types.Amount;
+  nps           : types.Amount;
+  vpf           : types.Amount;
+}
+
+entity Designation : cuid {
+  name        : String;
+  description : String;
+  level       : String;
 }
 
 /**
