@@ -9,7 +9,7 @@ Content-Type: application/json
       "fName": "Chiranjivi",
       "lName": "Seshadri",
       "gender": "Male",
-      "DOB": "1990-02-01",
+      "DOB": "1880-02-01",
       "contractStarted": "2012-03-11",
       "email": "ChiranjiviSeshadri1@abc.com",
       "phone": "8564543279"

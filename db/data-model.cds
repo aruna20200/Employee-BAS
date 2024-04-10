@@ -17,6 +17,7 @@ entity Employee : cuid, managed,types.PersonDetails{
   // lName           : String;
   gender          : String;
   DOB             : Date;
+  Age             :Integer;
   contractStarted : Date;
   email           : types.Email not null; //This Email has to follow the Format and should not be null
   phone           : types.phoneNumber not null;
